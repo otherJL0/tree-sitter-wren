@@ -2,7 +2,7 @@
   "name": "tree-sitter-wren",
   "version": "1.0.0",
   "description": "tree-sitter grammar for wren language",
-  "main": "index.js",
+  "main": "bindings/node",
   "scripts": {
     "test": "tree-sitter test",
     "prepare": "husky install"

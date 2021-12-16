@@ -1,0 +1,96 @@
+==============
+Numbers (nums)
+==============
+
+0
+123
+12345678901
+034
+
+---
+
+(source_file 
+  (statement
+    (value
+      (num)))
+  (statement
+    (value
+      (num)))
+  (statement
+    (value
+      (num)))
+  (statement
+    (value
+      (num))))
+
+=======
+Strings
+=======
+
+"hello"
+"goodbye"
+"simple"
+
+---
+
+(source_file 
+  (statement
+    (value
+      (string)))
+  (statement
+    (value
+      (string)))
+  (statement
+    (value
+      (string))))
+
+===============
+Booleans (bool)
+===============
+
+true
+false
+
+---
+
+(source_file
+  (statement
+    (value
+      (bool)))
+  (statement
+    (value
+      (bool))))
+
+===========
+Assignments
+===========
+
+var color = "yellow"
+var is_valid = true
+var dozen = 12
+var zero = 0
+var negate = false
+
+---
+
+(source_file
+  (statement
+    (identifier)
+    (value
+      (string)))
+  (statement
+    (identifier)
+    (value
+      (bool)))
+  (statement
+    (identifier)
+    (value
+      (num)))
+  (statement
+    (identifier)
+    (value
+      (num)))
+  (statement
+    (identifier)
+    (value
+      (bool))))

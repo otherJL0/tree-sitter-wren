@@ -1,0 +1,14 @@
+====================
+Single line comments
+====================
+
+// Wren language
+//Wren language
+//    Wren language
+
+---
+
+(source_file 
+  (comment (line_comment))
+  (comment (line_comment))
+  (comment (line_comment)))

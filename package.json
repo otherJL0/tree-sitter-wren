@@ -1,0 +1,33 @@
+{
+  "name": "tree-sitter-wren",
+  "version": "1.0.0",
+  "description": "tree-sitter grammar for wren language",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otherJL0/tree-sitter-wren.git"
+  },
+  "keywords": [
+    "wren",
+    "tree-sitter",
+    "grammar",
+    "treesitter"
+  ],
+  "author": "Jonathan Lopez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/otherJL0/tree-sitter-wren/issues"
+  },
+  "homepage": "https://github.com/otherJL0/tree-sitter-wren#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "tree-sitter-cli": "^0.20.1"
+  }
+}

@@ -1,4 +1,5 @@
 -std=c99
 -Isrc/
+-Inode_modules/nan/
 -Wall
 -pedantic

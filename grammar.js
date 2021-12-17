@@ -1,17 +1,12 @@
 module.exports = grammar({
   name: "wren",
 
+  externals: ($) => [
+    $.newline,
+  ],
   word: ($) => $.identifier,
 
   rules: {
-    // source_file: ($) =>
-    //   repeat(
-    //     choice(
-    //       $.comment,
-    //       $.statement,
-    //       $.block,
-    //     ),
-    //   ),
     source_file: ($) =>
       repeat(
         choice(

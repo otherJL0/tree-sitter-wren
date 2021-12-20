@@ -1,5 +1,10 @@
 [
   {
+    "type": "argument_list",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -28,6 +33,42 @@
     "type": "line_comment",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "method_call",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "receiver": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
@@ -73,6 +114,10 @@
           "named": true
         },
         {
+          "type": "method_call",
+          "named": true
+        },
+        {
           "type": "num",
           "named": true
         },
@@ -93,7 +138,19 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
     "type": "*/",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {

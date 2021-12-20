@@ -1,0 +1,12 @@
+=================
+Empty method call
+=================
+
+System.print()
+list.insert()
+
+---
+
+(source_file 
+ (statement  (method_call (identifier) (identifier) (argument_list)))
+ (statement  (method_call (identifier) (identifier) (argument_list))))

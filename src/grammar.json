@@ -161,6 +161,48 @@
         }
       ]
     },
+    "argument_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "method_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "receiver",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument_list"
+        }
+      ]
+    },
     "statement": {
       "type": "CHOICE",
       "members": [
@@ -188,6 +230,10 @@
               "name": "_value"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "method_call"
         }
       ]
     },
@@ -197,7 +243,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-z_]+"
+      "value": "[A-Za-z_]+"
     },
     "bool": {
       "type": "CHOICE",

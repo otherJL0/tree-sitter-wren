@@ -46,14 +46,24 @@ module.exports = grammar({
         $.string,
       ),
 
+    argument_list: ($) => seq("(", ")"),
+    method_call: ($) =>
+      seq(
+        field("receiver", $.identifier),
+        ".",
+        field("name", $.identifier),
+        $.argument_list,
+      ),
+
     statement: ($) =>
       choice(
         $._value,
         seq("var", $.identifier, "=", $._value),
+        $.method_call,
       ),
 
     _newline: (_$) => /\s*\n/,
-    identifier: (_$) => /[a-z_]+/,
+    identifier: (_$) => /[A-Za-z_]+/,
     bool: (_$) => choice("true", "false"),
     num: (_$) => /[0-9]+/,
     string: (_$) => seq('"', /[^"]+/, '"'),

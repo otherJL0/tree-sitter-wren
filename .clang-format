@@ -5,6 +5,10 @@ Language:        Cpp
 ColumnLimit: 100
 AlignAfterOpenBracket: AlwaysBreak
 AllowAllArgumentsOnNextLine: true
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
 AllowAllParametersOfDeclarationOnNextLine: false
 BreakBeforeBraces: Linux 
 BinPackArguments: false

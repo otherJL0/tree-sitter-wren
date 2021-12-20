@@ -3,4 +3,10 @@ BasedOnStyle: LLVM
 IndentWidth: 2
 Language:        Cpp
 ColumnLimit: 100
-AlignAfterOpenBracket: BAS_Align
+AlignAfterOpenBracket: AlwaysBreak
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: false
+BreakBeforeBraces: Linux 
+BinPackArguments: false
+BinPackParameters: false
+InsertTrailingCommas: None

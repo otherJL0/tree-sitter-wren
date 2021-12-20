@@ -32,7 +32,7 @@ module.exports = grammar({
     statement: ($) =>
       choice(
         $.value,
-        prec.left(1, seq("var", $.identifier, "=", $.value)),
+        seq("var", $.identifier, "=", $.value),
       ),
     identifier: (_$) => /[a-z_]+/,
     bool: (_$) => choice("true", "false"),

@@ -1,5 +1,20 @@
 [
   {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block_comment",
     "named": true,
     "fields": {}
@@ -41,6 +56,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "block",
+          "named": true
+        },
         {
           "type": "comment",
           "named": true
@@ -137,6 +156,14 @@
   },
   {
     "type": "var",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

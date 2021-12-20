@@ -12,12 +12,15 @@ module.exports = grammar({
         choice(
           $.comment,
           $.statement,
+          $.block,
         ),
       ),
 
     comment: ($) => choice($.line_comment, $.block_comment),
     line_comment: (_$) => seq("//", /.*/),
     block_comment: (_$) => seq("/*", /.*/s, "*/"),
+
+    block: ($) => seq("{", repeat($.statement), "}"),
 
     value: ($) =>
       choice(
@@ -29,7 +32,7 @@ module.exports = grammar({
     statement: ($) =>
       choice(
         $.value,
-        seq("var", $.identifier, "=", $.value),
+        prec.left(1, seq("var", $.identifier, "=", $.value)),
       ),
     identifier: (_$) => /[a-z_]+/,
     bool: (_$) => choice("true", "false"),

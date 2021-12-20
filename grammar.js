@@ -1,28 +1,45 @@
 module.exports = grammar({
   name: "wren",
 
-  externals: ($) => [
-    $.newline,
-  ],
   word: ($) => $.identifier,
 
   rules: {
     source_file: ($) =>
       repeat(
         choice(
-          $.comment,
+          $._comment,
           $.statement,
           $.block,
         ),
       ),
 
-    comment: ($) => choice($.line_comment, $.block_comment),
+    _comment: ($) => choice($.line_comment, $.block_comment),
     line_comment: (_$) => seq("//", /.*/),
-    block_comment: (_$) => seq("/*", /.*/s, "*/"),
+    block_comment: ($) =>
+      seq(
+        "/*",
+        repeat(
+          seq(/.*/, repeat($._newline)),
+        ),
+        "*/",
+      ),
 
-    block: ($) => seq("{", repeat($.statement), "}"),
+    block: ($) =>
+      seq(
+        "{",
+        choice(
+          $.statement,
+          seq(
+            repeat($._newline),
+            repeat(seq($.statement, repeat1($._newline))),
+            $.statement,
+            repeat($._newline),
+          ),
+        ),
+        "}",
+      ),
 
-    value: ($) =>
+    _value: ($) =>
       choice(
         $.bool,
         $.num,
@@ -31,9 +48,11 @@ module.exports = grammar({
 
     statement: ($) =>
       choice(
-        $.value,
-        seq("var", $.identifier, "=", $.value),
+        $._value,
+        seq("var", $.identifier, "=", $._value),
       ),
+
+    _newline: (_$) => /\s*\n/,
     identifier: (_$) => /[a-z_]+/,
     bool: (_$) => choice("true", "false"),
     num: (_$) => /[0-9]+/,

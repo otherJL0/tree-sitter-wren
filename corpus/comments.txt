@@ -9,6 +9,38 @@ Single line comments
 ---
 
 (source_file 
-  (comment (line_comment))
-  (comment (line_comment))
-  (comment (line_comment)))
+  (line_comment)
+  (line_comment)
+  (line_comment))
+
+====================
+Block comments
+====================
+
+/*Wren Language*/
+
+/* Wren language */
+
+/* Wren Language
+   */
+
+/* 
+   Wren Language */
+
+/* 
+   Wren Language 
+ */
+
+/* 
+  
+
+   Wren Language 
+
+
+ */
+---
+
+(source_file 
+  (block_comment)
+  (block_comment)
+  (block_comment))

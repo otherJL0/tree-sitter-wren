@@ -5,17 +5,8 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_statement"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "block"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_statement"
       }
     },
     "block": {
@@ -152,6 +143,10 @@
         {
           "type": "SYMBOL",
           "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
         },
         {
           "type": "SYMBOL",

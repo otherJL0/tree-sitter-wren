@@ -9,13 +9,7 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) =>
-      repeat(
-        choice(
-          $._statement,
-          $.block,
-        ),
-      ),
+    source_file: ($) => repeat($._statement),
 
     block: ($) =>
       seq(
@@ -52,6 +46,7 @@ module.exports = grammar({
     _statement: ($) =>
       choice(
         $._expression,
+        $.block,
         $.assignment,
         $.method_call,
       ),

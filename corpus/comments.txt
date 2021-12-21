@@ -9,9 +9,9 @@ Single line comments
 ---
 
 (source_file 
-  (line_comment)
-  (line_comment)
-  (line_comment))
+  (comment)
+  (comment)
+  (comment))
 
 ====================
 Block comments
@@ -41,6 +41,9 @@ Block comments
 ---
 
 (source_file 
-  (block_comment)
-  (block_comment)
-  (block_comment))
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (comment))

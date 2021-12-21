@@ -1,41 +1,26 @@
 module.exports = grammar({
   name: "wren",
 
+  extras: ($) => [
+    $.comment,
+    /\s|\\\r?\n/,
+  ],
+
   word: ($) => $.identifier,
 
   rules: {
     source_file: ($) =>
       repeat(
         choice(
-          $._comment,
           $._statement,
           $.block,
         ),
       ),
 
-    _comment: ($) => choice($.line_comment, $.block_comment),
-    line_comment: (_$) => seq("//", /.*/),
-    block_comment: ($) =>
-      seq(
-        "/*",
-        repeat(
-          seq(/.*/, repeat($._newline)),
-        ),
-        "*/",
-      ),
-
     block: ($) =>
       seq(
         "{",
-        choice(
-          $._statement,
-          seq(
-            repeat($._newline),
-            repeat(seq($._statement, repeat1($._newline))),
-            $._statement,
-            repeat($._newline),
-          ),
-        ),
+        repeat($._statement),
         "}",
       ),
 
@@ -76,5 +61,16 @@ module.exports = grammar({
     bool: (_$) => choice("true", "false"),
     num: (_$) => /[0-9]+/,
     string: (_$) => seq('"', /[^"]+/, '"'),
+
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    comment: (_$) =>
+      token(choice(
+        seq("//", /(\\(.|\r?\n)|[^\\\n])*/),
+        seq(
+          "/*",
+          /[^*]*\*+([^/*][^*]*\*+)*/,
+          "/",
+        ),
+      )),
   },
 });

@@ -8,7 +8,7 @@ module.exports = grammar({
       repeat(
         choice(
           $._comment,
-          $.statement,
+          $._statement,
           $.block,
         ),
       ),
@@ -28,11 +28,11 @@ module.exports = grammar({
       seq(
         "{",
         choice(
-          $.statement,
+          $._statement,
           seq(
             repeat($._newline),
-            repeat(seq($.statement, repeat1($._newline))),
-            $.statement,
+            repeat(seq($._statement, repeat1($._newline))),
+            $._statement,
             repeat($._newline),
           ),
         ),
@@ -46,7 +46,7 @@ module.exports = grammar({
         $.string,
       ),
 
-    argument_list: ($) => seq("(", ")"),
+    argument_list: ($) => seq("(", repeat($._expression), ")"),
     method_call: ($) =>
       seq(
         field("receiver", $.identifier),
@@ -55,10 +55,19 @@ module.exports = grammar({
         $.argument_list,
       ),
 
-    statement: ($) =>
+    _expression: ($) =>
       choice(
         $._value,
-        seq("var", $.identifier, "=", $._value),
+        $.identifier,
+      ),
+
+    assignment: ($) =>
+      seq("var", field("name", $.identifier), "=", field("value", $._value)),
+
+    _statement: ($) =>
+      choice(
+        $._expression,
+        $.assignment,
         $.method_call,
       ),
 

@@ -15,9 +15,9 @@ Numbers (nums)
 ---
 
 (source_file 
-  (block (statement (num)))
-  (block (statement (num)))
-  (block (statement (num)))
-  (block (statement (num)))
-  (block (statement (num)))
+  (block (num))
+  (block (num))
+  (block (num))
+  (block (num))
+  (block (num))
   )

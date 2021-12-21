@@ -10,14 +10,10 @@ Numbers (nums)
 ---
 
 (source_file 
-  (statement
+      (num)
+      (num)
+      (num)
       (num))
-  (statement
-      (num))
-  (statement
-      (num))
-  (statement
-      (num)))
 
 =======
 Strings
@@ -30,12 +26,9 @@ Strings
 ---
 
 (source_file 
-  (statement
+      (string)
+      (string)
       (string))
-  (statement
-      (string))
-  (statement
-      (string)))
 
 ===============
 Booleans (bool)
@@ -47,10 +40,8 @@ false
 ---
 
 (source_file
-  (statement
+      (bool)
       (bool))
-  (statement
-      (bool)))
 
 ===========
 Assignments
@@ -65,18 +56,18 @@ var negate = false
 ---
 
 (source_file
-  (statement
+  (assignment
     (identifier)
       (string))
-  (statement
+  (assignment
     (identifier)
       (bool))
-  (statement
+  (assignment
     (identifier)
       (num))
-  (statement
+  (assignment
     (identifier)
       (num))
-  (statement
+  (assignment
     (identifier)
       (bool)))
